@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            // codice che annulla la modifica
-            $table -> dropColumn('code');
+            // codice che la porta allo stato originale
+            $table -> string('code', 6)->unique(false)->change();
         });
     }
 };
